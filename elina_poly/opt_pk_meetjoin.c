@@ -681,6 +681,9 @@ opt_pk_array_t* opt_pk_meet_lincons_array_cons(elina_manager_t* man, bool destru
   free(nbgenmapa);
   free(nblinemapa);
   free_array_comp_list(aclb);
+  //for(k=0; k<num_comp; k++){
+//	opt_matrix_fprint(stdout,poly[k]->F);
+ // }
   //printf("meet lincons output\n");
   //elina_lincons0_array_t arr1 = opt_pk_to_lincons_array(man,op);
   //elina_lincons0_array_fprint(stdout,&arr1,NULL);
@@ -1384,7 +1387,10 @@ opt_pk_array_t * opt_poly_join_gen(elina_manager_t *man, opt_pk_array_t *oa, opt
 	free(num_vertex_b);
 	free(pos_con_map);
 	free_array_comp_list(acl);
-	
+//        for(k=0; k < num_comp; k++){
+//		opt_matrix_fprint(stdout,op->poly[k]->F);
+//	}
+//	print_array_comp_list(op->acl,op->maxcols);
 	return op;
 }
 

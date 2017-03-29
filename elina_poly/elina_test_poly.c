@@ -179,7 +179,7 @@ void test_expand(unsigned short int dim, size_t nbcons){
   	elina_lincons0_array_fprint(stdout,&arr3,NULL);
 	printf("tdim: %d dimsup: %d\n",tdim,dimsup);
   	fflush(stdout);
-	// apply fold operation
+	// apply expand operation
 	opt_pk_array_t * oa3 = opt_pk_expand(man,false,oa2,tdim,dimsup);	
 	
 
@@ -247,16 +247,16 @@ void test_assign(unsigned short int dim, size_t nbcons){
 }
 
 void test_fold(unsigned short int dim, size_t nbcons){
-	unsigned short int j,l=1;
+	unsigned short int j=dim-1,l;
 	//generate random cosntraints	
 	elina_lincons0_array_t lincons0 = generate_random_lincons0_array(dim,nbcons);
 	//generate tdim
 	unsigned short int size = dim/2;
 	elina_dim_t * tdim = (elina_dim_t *)malloc(size*sizeof(elina_dim_t));
 	tdim[0] = dim/2;
-	for(j=dim/2+1; j < dim; j++){
-		tdim[l] = j;
-		l++;
+	for(l=1; l < size; l++){
+		tdim[size-l] = j;
+		j--;
 	}
 
 	//run with ELINA
